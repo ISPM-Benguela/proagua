@@ -151,3 +151,18 @@ a {
   padding: 13px;
   border-radius: 10px;
 }
+
+.nd-jumbotron h4 {
+  color: #fff !important;
+  text-transform: uppercase;
+}
+.nd-jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../img/3.jpeg);
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+}
+.nd-contrato {
+  font-size: 14px;
+}

@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <title>proagua · Login</title>
 
 
@@ -42,7 +41,7 @@
         <img class="mb-4" src="img/logo.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Fazer o login</h1>
         <label for="inputEmail" class="sr-only">Email</label>
-        <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Endereco de email"  autofocus>
+        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Endereco de email"  autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Informe a tua senha" >
         <div class="checkbox mb-3">
@@ -72,7 +71,7 @@
       return;
     }
 
-    if($_POST['email'] == $email && $_POST['password'] == $password){
+    if($_POST['username'] == $email && $_POST['password'] == $password){
 
       $query = "select * from user where email = '". $email . "' and password='" . $password . "'";
       $result = mysqli_query($con, $query) or die(mysqli_error($con));

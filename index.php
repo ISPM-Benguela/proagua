@@ -4,16 +4,12 @@ include "backend/config.php";
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt">
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         <meta content="" name="description">
-        <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
-        <meta content="Jekyll v3.8.5" name="generator">
         <title>Proagua - incio</title>
-
-        <link href="https://getbootstrap.com/docs/4.3/examples/pricing/" rel="canonical">
 
         <!-- Bootstrap core CSS -->
         <link crossorigin="anonymous" href="css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
@@ -39,55 +35,8 @@ include "backend/config.php";
         <link href="css/main.css" rel="stylesheet">
     </head>
     <body>
-        <header class="navigation-wrap start-header start-style sticky-top bg-white nd-navbar">
-
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-12">
-                        <nav class="navbar  navbar-expand-md navbar-light">
-                            <a class="navbar-brand text-uppercase" href="/">
-                                <img src="img/logo.svg" width="100" height="54" alt=""> ProAgua
-                            </a>
-                            <button aria-controls="nd-navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#nd-navbar" data-toggle="collapse" type="button">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse" id="nd-navbar">
-                                <ul class="navbar-nav ml-auto py-2 py-md-0">
-                                    <li class="nav-item active">
-                                        <a href="http://localhost/site/" class="nav-link active">
-                                            <i class="fa fa-home"></i>
-                                            Inicio</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#servico" class="nav-link">
-                                            <i class="fa fa-briefcase"></i>
-                                            Serviços</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#preco" class="nav-link">
-                                            <i class="fa fa-dollar"></i>
-                                            Preços</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#contacto" class="nav-link">
-                                            <i class="fa fa-phone"></i>
-                                            Contactos</a>
-                                    </li>
-
-                                    <?php if(isset($_SESSION['uname'])) echo "<li class='nav-item'> <a class='btn btn-primary' href='http://localhost/site/painel.php'><i class='fa fa-user'></i> ". $_SESSION['uname'] ."</a></li>" ?>
-                                    <?php if(!isset($_SESSION['uname'])) echo "<li class='nav-item'> <a class='btn btn-primary' href='http://localhost/site/login.php'><i class='fa fa-user'></i> Fazer login</a></li>" ?>
-                                   
-                                </ul>
-
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-
+       
+        <?php require_once('includes/header.php') ?>
         <div class="carousel slide nd-carousel" data-ride="carousel" id="myCarousel">
             <ol class="carousel-indicators">
                 <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
@@ -234,7 +183,7 @@ include "backend/config.php";
                                 <li>10 carrafas</li>
                                 <li>8 meses de validade</li>
                             </ul>
-                            <button class="btn btn-lg btn-block btn-outline-primary" type="button">Fazer contracto</button>
+                            <a href="service.php?tipo=mineral" class="btn btn-lg btn-block btn-outline-primary" type="button">Fazer contracto</a>
                         </div>
                     </div>
                     <div class="card mb-4 shadow-sm">
@@ -249,7 +198,7 @@ include "backend/config.php";
                                 <li>+10 metros fica cada 5.000</li>
                                 <li>suporte gratis até 2 meses</li>
                             </ul>
-                            <button class="btn btn-lg btn-block btn-primary" type="button">Fazer contracto</button>
+                            <a href="service.php?tipo=canalizacao" class="btn btn-lg btn-block btn-primary" type="button">Fazer contracto</a>
                         </div>
                     </div>
                     <div class="card mb-4 shadow-sm">
@@ -262,9 +211,9 @@ include "backend/config.php";
                             </h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>+4 metros cub 150.000</li>
-                                <li>se manunteção conosco desconto 10%</li>
+                                <li>manunteção desconto 10%</li>
                             </ul>
-                            <button class="btn btn-lg btn-block btn-primary" type="button">Contact us</button>
+                            <a href="service.php?tipo=piscina" class="btn btn-lg btn-block btn-primary" type="button">Contact us</a>
                         </div>
                     </div>
                 </div>
