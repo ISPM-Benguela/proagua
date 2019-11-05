@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
  require_once('backend/config.php');
 ?>
 
@@ -59,12 +55,53 @@ error_reporting(E_ALL);
   <?php 
   
    if(isset($_POST['Submit'])){
-   ?>
-    <div class="alert mt-4 alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>Atenção!</strong> senha ou email incorreto.
-  </div>
-   <?php
+
+    @$email = $_POST['email'];
+    @$password = $_POST['password'];
+
+    if(empty($email) && empty($password)){
+    
+    ?>
+
+        <div class="alert mt-4 alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Atenção!</strong> Email ou senha em branco.
+        </div>
+
+    <?php
+      return;
+    }
+
+    if($_POST['email'] == $email && $_POST['password'] == $password){
+
+      $query = "select * from user where email = '". $email . "' and password='" . $password . "'";
+      $result = mysqli_query($con, $query) or die(mysqli_error($con));
+      $count = mysqli_num_rows($result);
+
+      if ($count == 1){
+
+        echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
+
+        $_SESSION['uname'] = $email;
+        header('Location: painel.php');
+        
+        }else{
+        ?>
+        <div class="alert mt-4 alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Atenção!</strong> Email ou senha incorrecta.
+        </div>
+        <?php
+        }
+      
+    }else { 
+    ?>
+     <div class="alert mt-4 alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Atenção!</strong> Error no servidor.
+    </div>
+    <?php
+    }
   }
   ?>  
   

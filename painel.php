@@ -39,6 +39,8 @@ if(isset($_POST['but_logout'])){
       <a class="navbar-brand col-sm-3 col-md-2 ml-5" href="#">
         <img src="img/logo.svg" height="32px" alt=""> AguaPro
       </a>
+
+      <a href="" class="float-right text-white mr-5"><?php  echo $_SESSION['uname']  ?></a>
     </nav>
 
     <div class="container-fluid">
