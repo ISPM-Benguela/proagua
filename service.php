@@ -87,8 +87,10 @@ include "backend/config.php";
 
                         @$nome = $_POST['nome'];
                         @$nif = $_POST['nif'];
+                        @$bi = $_POST['bi'];
                         @$data = $_POST['data'];
                         @$provincia = $_POST['provincia'];
+                        @$telefone = $_POST['telefone'];
                         @$tipo = $_POST['tipo'];
 
                       if(empty($nome) && empty($nif) && empty($data) && empty($provincia) && empty($tipo) ){
@@ -98,13 +100,37 @@ include "backend/config.php";
                             </div>
                         <?php
                       }else{
-                          echo "Enviando...";
+                          
+                        if($con->connect_error){
+                            die('connection failed: ' . $con->connection_error);
+                        }else {
+                            $sql = "INSERT INTO contracto (titular, nif, bi, valido, provincia, telefone, tipo)
+                                VALUES ('$nome', '$nif', '$bi','$data', '$provincia', '$telefone','$tipo')";
+
+                                if ($con->query($sql) === TRUE) {
+                                    ?>
+                                    <div class="alert alert-success" role="alert">
+                                     Contrato enviado com sucesso, aguarde o nosso feedback.
+                                    </div>
+                                  
+                                <?php
+                                } else {
+                                    ?>
+
+                                    <div class="alert alert-success" role="alert">
+                                    Houve um erro no servidor tente mais tarde.
+                                    </div>
+                                <?php
+                                }
+
+                                $con->close();
+                        }
                       }
                     }
                 ?>
                 <div class="card">
                     <div class="card-body">
-                    <h3 class="card-title">Descricao do contracto <span class="nd-contrato">
+                    <h3 class="card-title">Celebração do contracto <span class="nd-contrato">
                     (
                         <?php
 

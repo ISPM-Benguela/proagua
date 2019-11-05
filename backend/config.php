@@ -13,7 +13,7 @@ error_reporting(E_ALL);
 $host = "localhost"; /* Host name */
 $user = "tanda"; /* User */
 $password = "tanda"; /* Password */
-$dbname = "mediateca"; /* Database name */
+$dbname = "agua"; /* Database name */
 
 $con = mysqli_connect($host, $user, $password,$dbname);
 // Check connection
