@@ -35,19 +35,24 @@
      <link href="css/preco.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form class="form-signin">
-  <img class="mb-4" src="img/logo.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Fazer o login</h1>
-  <label for="inputEmail" class="sr-only">Email</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  <label for="inputPassword" class="sr-only">Senha</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  <div class="checkbox mb-3">
+    <form class="form-signin" action="process_login.php" method="post">
+        <img class="mb-4" src="img/logo.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Fazer o login</h1>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Me lembrar
     </label>
   </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Fazer login</button>
+  <br />
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Atenção!</strong> senha ou email incorreto.
+  </div>
   <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>
 </body>

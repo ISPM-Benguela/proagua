@@ -1,3 +1,8 @@
+
+<?php
+include "backend/config.php";
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -70,11 +75,10 @@
                                             <i class="fa fa-phone"></i>
                                             Contactos</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="login.php" class="btn btn-outline-primary" class="nav-link">
-                                            <i class="fa fa-user"></i>
-                                            Fazer Login</a>
-                                    </li>
+
+                                    <?php if(isset($_SESSION['uname'])) echo "<li class='nav-item'> <a class='btn btn-primary' href='http://localhost/site/painel.php'><i class='fa fa-user'></i> ". $_SESSION['uname'] ."</a></li>" ?>
+                                    <?php if(!isset($_SESSION['uname'])) echo "<li class='nav-item'> <a class='btn btn-primary' href='http://localhost/site/login.php'><i class='fa fa-user'></i> Fazer login</a></li>" ?>
+                                   
                                 </ul>
 
                             </div>

@@ -1,4 +1,19 @@
 
+<?php
+include "backend/config.php";
+
+// Check user login or not
+if(!isset($_SESSION['uname'])){
+    header('Location: index.php');
+}
+
+// logout
+if(isset($_POST['but_logout'])){
+    session_destroy();
+    header('Location: index.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -59,10 +74,9 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Sair
-                </a>
+                <form class="nav-link" method='post' action="">
+                   <input type="submit" value="Sair" name="but_logout">
+                </form>
               </li>
             </ul>
           </div>
