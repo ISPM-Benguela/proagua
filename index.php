@@ -221,27 +221,6 @@ include "backend/config.php";
 
                 <hr class="featurette-divider">
 
-            <div class="container" id="contacto">
-                <div class="card">
-                   <div class="card-body p-5" >
-                   <h3 class="card-title">Escreva para nós</h3>
-                   <form action="" >
-                        <div class="group-form">
-                        <label for="">Email</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="group-form">
-                        <label for="">Texto</label>
-                            <textarea name="" class="form-control" id="" cols="6" rows="4"></textarea>
-                        </div>
-                        <div class="group-form pt-3">
-                          <input type="submit" class="btn btn-primary" value="Enviar mensagem">
-                        </div>
-                    </form>
-                   </div>
-                </div>
-            </div>
-
                 <footer class="pt-4 my-md-5 pt-md-5 border-top">
                     <div class="row">
                         <div class="col-12 col-md">

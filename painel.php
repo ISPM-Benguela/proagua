@@ -87,6 +87,17 @@ if(isset($_POST['but_logout'])){
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2"> <img src="img/logo.svg" height="65px" alt=""> Painel de controle</h1>
+             <?php
+
+                if(@$_SESSION['success']){
+                  ?>
+                    <div class="alert alert-danger" role="alert">
+                        Contrato eliminado!
+                      </div>
+                  <?php
+                }
+                unset($_SESSION['success']);
+             ?>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Partilhar</button>
@@ -124,7 +135,7 @@ if(isset($_POST['but_logout'])){
                           <td><?php echo $row['telefone'] ?></td>
                           <td><?php echo $row['tipo'] ?></td>
                           <td>
-                            <a href="contracto_process.php?delete=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i></a>
+                            <a href="processa_contrato.php?delete=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i></a>
                           </td>
                 </tr>
                      <?php
