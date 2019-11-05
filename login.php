@@ -1,3 +1,12 @@
+<?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+ require_once('backend/config.php');
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -6,10 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Signin Template · Bootstrap</title>
+    <title>proagua · Login</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -32,27 +39,35 @@
       }
     </style>
      <!-- Custom styles for this template -->
-     <link href="css/preco.css" rel="stylesheet">
+     <link href="css/main.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form class="form-signin" action="process_login.php" method="post">
+    <form class="form-signin" action="" method="post">
         <img class="mb-4" src="img/logo.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Fazer o login</h1>
         <label for="inputEmail" class="sr-only">Email</label>
-        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Endereco de email"  autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Informe a tua senha" >
         <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Me lembrar
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Fazer login</button>
-  <br />
-  <div class="alert alert-danger alert-dismissible" role="alert">
+  <button class="btn btn-lg btn-primary btn-block" name="Submit" type="submit">Fazer login</button>
+  
+  <?php 
+  
+   if(isset($_POST['Submit'])){
+   ?>
+    <div class="alert mt-4 alert-danger alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong>Atenção!</strong> senha ou email incorreto.
   </div>
+   <?php
+  }
+  ?>  
+  
   <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>
 </body>

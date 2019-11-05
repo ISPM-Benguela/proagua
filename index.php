@@ -36,7 +36,7 @@ include "backend/config.php";
       }
     </style>
         <!-- Custom styles for this template -->
-        <link href="css/preco.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
     </head>
     <body>
         <header class="navigation-wrap start-header start-style sticky-top bg-white nd-navbar">
