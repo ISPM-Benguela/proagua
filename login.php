@@ -40,7 +40,7 @@
     <form class="form-signin" action="" method="post">
         <img class="mb-4" src="img/logo.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Fazer o login</h1>
-        <label for="inputEmail" class="sr-only">Email</label>
+        <label for="inputEmail" class="sr-only">Nome</label>
         <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Endereco de email"  autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Informe a tua senha" >
@@ -55,10 +55,10 @@
   
    if(isset($_POST['Submit'])){
 
-    @$email = $_POST['email'];
+    @$username = $_POST['username'];
     @$password = $_POST['password'];
 
-    if(empty($email) && empty($password)){
+    if(empty($username) && empty($password)){
     
     ?>
 
@@ -71,9 +71,9 @@
       return;
     }
 
-    if($_POST['username'] == $email && $_POST['password'] == $password){
+    if($_POST['username'] == $username && $_POST['password'] == $password){
 
-      $query = "select * from user where email = '". $email . "' and password='" . $password . "'";
+      $query = "select * from usuario where username = '". $username . "' and senha='" . $password . "'";
       $result = mysqli_query($con, $query) or die(mysqli_error($con));
       $count = mysqli_num_rows($result);
 
@@ -81,7 +81,7 @@
 
         echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
 
-        $_SESSION['uname'] = $email;
+        $_SESSION['uname'] = $username;
         header('Location: painel.php');
         
         }else{

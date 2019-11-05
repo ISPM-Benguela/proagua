@@ -104,20 +104,34 @@ if(isset($_POST['but_logout'])){
               <thead>
                 <tr>
                   <th>Codigo</th>
-                  <th>Cliete</th>
+                  <th>Cliente</th>
                   <th>Email</th>
                   <th>Serviço</th>
                   <th>Acção</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                <?php
+                  $sql ="select * from contracto";
+                  $result = $con->query($sql);
+
+                  if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                      ?>
+                       <tr>
+                          <td># <?php echo $row['id'] ?></td>
+                          <td><?php echo $row['titular'] ?></td>
+                          <td><?php echo $row['telefone'] ?></td>
+                          <td><?php echo $row['tipo'] ?></td>
+                          <td>
+                            <a href="contracto_process.php?delete=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i></a>
+                          </td>
                 </tr>
+                     <?php
+                    }
+                  }
+                 ?>
+                
               </tbody>
             </table>
           </div>
